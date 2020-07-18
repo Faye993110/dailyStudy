@@ -1,0 +1,74 @@
+.topicWrapper{
+    padding: 20px 0 10px 0;
+    overflow: hidden;
+    margin-left: -18px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.topicItem{
+    margin-left: 18px;
+    margin-bottom: 18px;
+    float: left;
+    background:#f7f7f7;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    color: #000;
+    border:1px solid #dcdcdc;
+    border-radius: 4px;
+    padding-right: 10px;
+}
+
+.topicItem .topic-pic{
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    float: left;
+}
+
+.listItem{
+    padding: 20px 0;
+    border-bottom: 1px solid #dcdcdc;
+    overflow: hidden;
+}
+
+.listItem img{
+    width: 125px;
+    height: 100px;
+    display: block;
+    float: right;
+    border-radius: 3px;
+}
+
+.listInfo{
+    width: 500px;
+    float: left;
+}
+
+.listInfo h3{
+    font-size:18px;
+    line-height:27px;
+    font-weight: bold;
+    color:#333
+}
+
+.listInfo p{
+    font-size:13px;
+    line-height: 24px;
+    color:#999;
+}
+
+.recommendWrapper{
+  margin: 30px 0px;
+  width: 200px;
+  
+  
+}
+
+.recommendItem{
+    width: 280px;
+    height: 50px;
+    /* background:url(http://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png); */
+    
+}
