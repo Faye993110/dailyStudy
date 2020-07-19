@@ -34,9 +34,11 @@ yoman就像一个脚手架运行平台，通过yoman搭配不同的generator去�
 4）生成所需的项目结构
 
 作业code文件夹为：generator-faye-react
+https://github.com/Faye993110/dailyStudy/tree/master/fed-e-task-02-01/code/generator-faye-react
 在这里我实现了一个可以生成一个基础网页的react项目，项目里面的store以及reducer都是自动建好的，可以直接后续使用。
 
 2、尝试使用 Gulp 完成项目的自动化构建
+
 1)在项目中安装gulp的项目依赖 ：yarn add gulp --dev
 2)样式编译，使用到gulp-sass 插件，这里需要注意的是node-sass模版，可以使用淘宝镜相进行安装
 3)脚本编译,使用到gulp-babel插件，要额外安装@babel/core, @babel/preset-env,并进行相应的配置
@@ -48,11 +50,13 @@ yoman就像一个脚手架运行平台，通过yoman搭配不同的generator去�
 9）使用useref 来处理文件引用的问题
 
 代码为：gulpfile.js
+
+https://github.com/Faye993110/dailyStudy/blob/master/fed-e-task-02-01/code/pages-boilerplate/gulpfile.js
 //就是把老师的写的自己跑了一遍
 
 3、使用 Grunt 完成项目的自动化构建
 1)在grunt.initConfig里面加构建任务
-
+https://github.com/Faye993110/dailyStudy/blob/master/fed-e-task-02-01/code/pages-boilerplate/gruntfile.js
 代码为gruntfile.js
 
 
