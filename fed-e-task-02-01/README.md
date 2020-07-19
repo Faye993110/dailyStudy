@@ -48,7 +48,7 @@ yoman就像一个脚手架运行平台，通过yoman搭配不同的generator去�
 9）使用useref 来处理文件引用的问题
 
 代码为：gulpfile.js
-
+//就是把老师的写的自己跑了一遍
 
 3、使用 Grunt 完成项目的自动化构建
 1)在grunt.initConfig里面加构建任务
