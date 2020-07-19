@@ -67,4 +67,60 @@ generator 基本结构
   11、执行成功，如果在自己的templates中有用到ejs模版命令，在百分号之前添加%进行转义即可，例如： <%%= BASE_URL %>就不会有问题了
 
 
+ 使用 Gulp 完成项目的自动化构建过程
+
+ 1、在项目中安装gulp的项目依赖 ：yarn add gulp --dev
+ 2、在根目录中创建gulpfile.js文件，用来编写需要构建的任务
+ 3、在命令行中执行命令，运行构建任务
+
+构建核心原理：就是读取文件（输入） => 压缩文件（加工） => 写入文件（输出）
+
+一个由node js 实现的简单的任务：
+```
+const fs = require('fs')
+
+exports.default = () => {
+  //文件读取流
+  const read = fs.createReadStream('xxx.css');
+  //文件写入流
+  const write = fs.createWriteStream('xxx.min.css');
+  
+
+  //文件转换流
+  const transform = new Transform({
+    transform: (chunk, encoding, callback) => {
+      //核心转换过程实现
+      // chunk => 读取流中读取到的内容（Buffer）
+      const input = chunk.toString();
+      const output = input.replace(/\s+/g, '').replace(/\/\*.+?\*\//g,'')
+      callback(null, output)
+    }
+  })
+  //把读取出来的文件流导入写入文件流
+  read
+    .pipe(transform)
+    .pipe(write)
+  return read
+}
+
+```
+
+Gulp 文件操作API + 插件的使用
+```
+const {src, dest} = require('gulp')
+const cleanCss = require('gulp-clean-css')
+const rename = require('gulp-rename')
+
+exports.default = () => {
+    return src('src/*.css')
+        .pipe(cleanCss())
+        .pipe(rename({extname: '.min.css'}))
+        .pipe(dest('dist'))
+}
+```
+
+
+分别压缩HTML、CSS、JavaScript
+
+
 

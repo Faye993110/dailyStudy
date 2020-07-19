@@ -25,9 +25,10 @@
   },
   "scripts": {
     "clean": "gulp clean",
+    "build": "gulp build",
+    "develop": "gulp develop",
     "lint": "gulp lint",
     "serve": "gulp serve",
-    "build": "gulp build",
     "start": "gulp start",
     "deploy": "gulp deploy --production"
   },
@@ -38,11 +39,30 @@
     "not dead"
   ],
   "dependencies": {
+    "@babel/core": "^7.10.5",
     "bootstrap": "4.4.1",
+    "del": "^5.1.0",
+    "grunt-babel": "^8.0.0",
+    "gulp-babel": "^8.0.0",
     "jquery": "3.4.1",
+    "load-grunt-tasks": "^5.1.0",
     "popper.js": "1.16.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.10.4",
+    "browser-sync": "^2.26.10",
+    "grunt": "^1.2.1",
+    "grunt-sass": "^3.1.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-load-plugins": "^2.0.3",
+    "gulp-swig": "^0.9.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-useref": "^4.0.1",
+    "sass": "^1.26.10"
   },
   "engines": {
     "node": ">=6"

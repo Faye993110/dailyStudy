@@ -21,7 +21,7 @@
 ·相同的基础代码
 
 编程题
-1、概述脚手架实现的过程，并使用 NodeJS 完成一个自定义的小型脚手架工具
+1、概述脚手架实现的过程，并完成一个自定义的小型脚手架工具（老师这里我读题不清楚，没用node js， 直接用了yeoman generator）
 实现代码见：
 
 开发脚手架之前的理解：
@@ -33,11 +33,27 @@ yoman就像一个脚手架运行平台，通过yoman搭配不同的generator去�
 3）通过命令行填写交互选项
 4）生成所需的项目结构
 
+作业code文件夹为：generator-faye-react
+在这里我实现了一个可以生成一个基础网页的react项目，项目里面的store以及reducer都是自动建好的，可以直接后续使用。
 
 2、尝试使用 Gulp 完成项目的自动化构建
+1)在项目中安装gulp的项目依赖 ：yarn add gulp --dev
+2)样式编译，使用到gulp-sass 插件，这里需要注意的是node-sass模版，可以使用淘宝镜相进行安装
+3)脚本编译,使用到gulp-babel插件，要额外安装@babel/core, @babel/preset-env,并进行相应的配置
+4）页面模版编译，安装gulp-swig插件，这里需要传入data，来代替模版中的数据，
+5）图片和文字转换，安装gulp-imagemin
+6)文件清除，引用del 模块
+7）引用gulp-load-plugins插件，自动加载插件，这样不用每个模块编译都手动安装
+8）热更新开发服务器，引用browser-sync
+9）使用useref 来处理文件引用的问题
+
+代码为：gulpfile.js
+
 
 3、使用 Grunt 完成项目的自动化构建
+1)在grunt.initConfig里面加构建任务
 
+代码为gruntfile.js
 
 
 2-3 题项目基础代码下载地址：
