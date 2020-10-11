@@ -73,6 +73,7 @@ let vm = new Vue({
 
 
 2、在模拟 Vue.js 响应式源码的基础上实现 v-html 指令，以及 v-on 指令。
+代码：https://github.com/Faye993110/dailyStudy/tree/master/fed-e-task-03-01/code/2-2-Vue-instruction/js
 * 在complier.js里面修改即可
 * v-html：
 ```
@@ -114,6 +115,8 @@ htmlUpdater(node, value, key) {
 
 
 3、参考 Snabbdom 提供的电影列表的示例，利用Snabbdom 实现类似的效果
+
+代码：https://github.com/Faye993110/dailyStudy/blob/master/fed-e-task-03-01/code/2-3-snabbdom/src/movieList.js
 ```
 import { h, init } from 'snabbdom'
 import style from 'snabbdom/modules/style'
