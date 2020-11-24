@@ -1,0 +1,43 @@
+[
+  {
+    "path": "/",
+    "component": "/Users/faye/Documents/lagouEducation/dailyStudy/fed-e-task-03-03/code/realworld-nuxt.js/pages/layout",
+    "children": [
+      {
+        "path": "",
+        "name": "home",
+        "component": "/Users/faye/Documents/lagouEducation/dailyStudy/fed-e-task-03-03/code/realworld-nuxt.js/pages/home"
+      },
+      {
+        "path": "/login",
+        "name": "login",
+        "component": "/Users/faye/Documents/lagouEducation/dailyStudy/fed-e-task-03-03/code/realworld-nuxt.js/pages/login"
+      },
+      {
+        "path": "/register",
+        "name": "register",
+        "component": "/Users/faye/Documents/lagouEducation/dailyStudy/fed-e-task-03-03/code/realworld-nuxt.js/pages/login"
+      },
+      {
+        "path": "/profile/:username",
+        "name": "profile",
+        "component": "/Users/faye/Documents/lagouEducation/dailyStudy/fed-e-task-03-03/code/realworld-nuxt.js/pages/profile"
+      },
+      {
+        "path": "/settings",
+        "name": "settings",
+        "component": "/Users/faye/Documents/lagouEducation/dailyStudy/fed-e-task-03-03/code/realworld-nuxt.js/pages/settings"
+      },
+      {
+        "path": "/editor",
+        "name": "editor",
+        "component": "/Users/faye/Documents/lagouEducation/dailyStudy/fed-e-task-03-03/code/realworld-nuxt.js/pages/editor"
+      },
+      {
+        "path": "/article/:slug",
+        "name": "article",
+        "component": "/Users/faye/Documents/lagouEducation/dailyStudy/fed-e-task-03-03/code/realworld-nuxt.js/pages/article"
+      }
+    ]
+  }
+]
