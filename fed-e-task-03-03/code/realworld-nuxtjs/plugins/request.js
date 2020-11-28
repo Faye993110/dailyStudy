@@ -27,7 +27,7 @@ export default ({ store }) => {
     }
 
     // 返回 config 请求配置对象
-    return config
+    return config //不返回，请求就发不出去了
   }, function (error) {
     // 如果请求失败(此时请求还没有发出去)就会进入这里
     // Do something with request error
