@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function curry(func) {
+        return function curriedFn(...args) {
+          if (args.length < func.length) {
+            return function () {
+              return curriedFn(...args.concat(Array.from(arguments)))
+            }
+          }
+          return func(...args)
+        }
+      }
+
+      function getNums(a, b, c) {
+        return a + b + c
+      }
+      let curried = curry(getNums)
+      console.log(curried(1)(2)(3))
+    </script>
+  </body>
+</html>
