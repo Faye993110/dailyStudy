@@ -17,34 +17,21 @@ const MyPromise = require('./myPromise')
 const FayePromise = require('./fayePromise')
 
 let promise = new FayePromise((resolve, reject) => {
-  reject('shib')
-
-  console.log('123')
+  resolve('成功')
 })
-promise.then(
-  (value) => {
+promise
+  .then(
+    (value) => {
+      console.log(value)
+      return 100
+    },
+    (reason) => {
+      console.log(reason)
+    }
+  )
+  .then((value) => {
     console.log(value)
-  },
-  (reason) => {
-    console.log(reason)
-  }
-)
-promise.then(
-  (value) => {
-    console.log(value)
-  },
-  (reason) => {
-    console.log(reason)
-  }
-)
-promise.then(
-  (value) => {
-    console.log(value)
-  },
-  (reason) => {
-    console.log(reason)
-  }
-)
+  })
 
 function p1() {
   return new MyPromise(function (resolve, reject) {

@@ -7,7 +7,11 @@ class FayePromise {
   //执行器接收两个参数，resolve，reject
   // 立即执行，所以写在构造函数里面
   constructor(executor) {
-    executor(this.resolve, this.reject)
+    try {
+      executor(this.resolve, this.reject)
+    } catch (e) {
+      this.reject(e)
+    }
   }
 
   status = PENDING
@@ -40,14 +44,24 @@ class FayePromise {
   }
 
   then(successCallback, failCallback) {
-    if (this.status === FULFILLED) {
-      successCallback(this.value)
-    } else if (this.status === REJECTED) {
-      failCallback(this.reason)
-    } else {
-      this.successCallback.push(successCallback)
-      this.failCallback.push(failCallback)
-    }
+    let promise2 = new FayePromise((resolve, reject) => {
+      if (this.status === FULFILLED) {
+        setTimeout(() => {
+          try {
+            let x = successCallback(this.value)
+            resolve(x)
+          } catch (e) {
+            reject(e)
+          }
+        })
+      } else if (this.status === REJECTED) {
+        failCallback(this.reason)
+      } else {
+        this.successCallback.push(successCallback)
+        this.failCallback.push(failCallback)
+      }
+    })
+    return promise2
   }
 }
 
