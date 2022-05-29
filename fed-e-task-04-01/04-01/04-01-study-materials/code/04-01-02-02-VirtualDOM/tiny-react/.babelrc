@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    [
+      "@babel/preset-react", //babel 预置
+      {
+        //将React.createElement 方法 转换为 TinyReact.createElement
+        "pragma":"TinyReact.createElement"
+      }
+    ]
+  ]
+}
