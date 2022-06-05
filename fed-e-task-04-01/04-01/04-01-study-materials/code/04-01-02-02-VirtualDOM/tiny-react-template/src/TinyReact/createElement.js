@@ -10,11 +10,12 @@ export default function createElement(type, props, ...children){
   const childElements = [].concat(...children).reduce((result,child) => {
     if(child !== false && child !== true && child !== null ){
       if(child instanceof Object){
-        return result.push(child)
+         result.push(child)
       }else{
-        return result.push(createElement('text',{textContent:child}))
+         result.push(createElement('text',{textContent:child}))
       }
     } 
+    return result
   },[])
   return {
     type,
@@ -22,3 +23,4 @@ export default function createElement(type, props, ...children){
     children:childElements
   }
 }
+
