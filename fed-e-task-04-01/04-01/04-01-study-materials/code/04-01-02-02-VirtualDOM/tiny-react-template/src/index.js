@@ -37,24 +37,24 @@ const modifyDOM = (
 
 const root = document.getElementById('root');
 
-TinyReact.render(virtualDOM, root);
+// TinyReact.render(virtualDOM, root);
 
-setTimeout(()=>{
-  TinyReact.render(modifyDOM, root)
-},2000)
+// setTimeout(()=>{
+//   TinyReact.render(modifyDOM, root)
+// },2000)
 
 
-// function Demo(){
-//   return <div>Hello</div>
-// }
+function Demo(){
+  return <div>Hello</div>
+}
 
-// function Heart(props) {
-//   return (<div>
-//     {props.title}
-//     &hearts;
-//     <Demo></Demo>
-//   </div>)
-// }
+function Heart(props) {
+  return (<div>
+    {props.title}
+    &hearts;
+    <Demo></Demo>
+  </div>)
+}
 
 //TinyReact.render(<Heart title="hello react"></Heart>, root)
 
@@ -62,14 +62,123 @@ setTimeout(()=>{
 class Alert extends TinyReact.Component {
   constructor(props){
     //props 传递给父类
-    super(props)
+    super(props);
+    this.state = {
+      title:'default'
+    }
+    this.handleCick = this.handleCick.bind(this);
+  }
+  componentWillReceiveProps(nextProps){
+    console.log('componentWillReceiveProps')
+  }
+  componentWillUpdate(){
+    console.log('componentWillUpdate')
+  }
+
+  componentDidUpdate(){
+    console.log('componentDidUpdate')
+  }
+  handleCick(){
+    this.setState({title:'changed title'})
   }
   render (){
     return <div>
       {this.props.name}
       {this.props.age}
+      {this.state.title}
+      <button onClick={this.handleCick}>改变title</button>
       </div>
   }
 }
 
-//TinyReact.render(<Alert name="张三" age={20}></Alert>, root)
+// TinyReact.render(<Alert name="张三" age={20}></Alert>, root)
+
+// setTimeout(() => {
+//   TinyReact.render(<Alert name="李四" age={50}></Alert>, root)
+//   //TinyReact.render(<Heart title="hello react"></Heart>, root)
+// },2000)
+
+
+class DemoRef extends TinyReact.Component{
+  constructor(props){
+    super(props);
+    this.handleCick = this.handleCick.bind(this);
+  }
+  handleCick(){
+    console.log(this.input.value)
+    console.log(this.alert)
+  }
+  
+  componentDidMount(){
+    console.log('componentDidMount')
+  }
+  componentWillUnmount(){
+    console.log('componentWillUnmount')
+  }
+
+  render(){
+    return(
+      <div>
+        <input type="text" ref={input => (this.input = input)} ></input>
+        <button onClick={this.handleCick}>click button</button>
+        <Alert ref={alert => this.alert = alert} name="李四" age={50}></Alert>        
+      </div>
+    )
+  }
+}
+
+//TinyReact.render(<DemoRef></DemoRef>, root)
+
+class KeyDemo extends TinyReact.Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        persons: [
+          {
+            id: 1,
+            name: "张三"
+          },
+          {
+            id: 2,
+            name: "李四"
+          },
+          {
+            id: 3,
+            name: "王五"
+          },
+          {
+            id: 4,
+            name: "赵六"
+          }
+        ]
+      }
+      this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick() {
+      const newState = JSON.parse(JSON.stringify(this.state))
+     // newState.persons.push(newState.persons.shift())
+      // newState.persons.splice(1, 0, { id: 100, name: "李逵" })
+     newState.persons.pop()
+      this.setState(newState)
+    }
+    componentWillUnmount(){
+      console.log('componentWillUnmount')
+    }
+    render() {
+      return (
+        <div>
+          <ul>
+            {this.state.persons.map(person => (
+              <li key={person.id} >
+                {person.name}
+                <DemoRef />
+              </li>
+            ))}
+          </ul>
+          <button onClick={this.handleClick}>按钮</button>
+        </div>
+      )
+    }
+  }
+  
+  TinyReact.render(<KeyDemo />, root)
